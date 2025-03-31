@@ -22,7 +22,6 @@ function ProductListPage({query}){
         if (sort === "high-to-low") return b.price - a.price;
         if (sort === "a-z") return a.title.localeCompare(b.title);
         if (sort === "z-a") return b.title.localeCompare(a.title);
-        
         return 0; // Default (no sorting)
       });
   
