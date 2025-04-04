@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Navbar from "./Nevbar";
 import ProductListPage from "./ProductsList";
+import { Route, Routes } from "react-router-dom";
+import ProductDetail from "./productDetail";
 
 export default function App() {
 
@@ -8,7 +10,11 @@ export default function App() {
     return (
       <div>
         <Navbar query={query} setQuery={setQuery} />
-     <ProductListPage  query={query}/>
+      <Routes>
+        <Route path="/" element={ <ProductListPage  query={query}/>} ></Route>
+        <Route path="/product/:id" element={<ProductDetail />}></Route>
+      </Routes>
+    
       </div>
     )
   }
