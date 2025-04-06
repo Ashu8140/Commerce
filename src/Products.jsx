@@ -1,6 +1,7 @@
 import React, {  useState } from "react";
 // import { Link } from "react-router"
 import { Loading } from "./Loading";
+import { Link } from "react-router-dom";
 
 const Product = ({data,setSort,sort}) => {
   
@@ -33,9 +34,9 @@ const Product = ({data,setSort,sort}) => {
             <p className="text-gray-500">{`Rating+ ${item.rating}`}</p>
             <p className="text-lg font-bold text-blue-600 mt-1">${item.price}</p>
           
-          {/* <Link to={`/product/${item.id}`} > <button className="mt-3 w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition">
+        <Link to={`/product/${item.id}`} > <button className="mt-3 w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition">
               View Detail
-            </button></Link> */}
+            </button></Link> 
           </div>
         ))}
       </div>
