@@ -7,10 +7,11 @@ export default function ProductDetail({onAddToCart}) {
   const [data, setData]=useState([]);
   const [count,setCount]=useState(1);
   const id  = +(useParams().id);
+  console.log(id);
  
    useEffect(()=>{
      getProductDetail(id).then((response)=>{
-     setData(response.data);
+     setData(response);
      setCount(1);
       })
     },[id]);
@@ -63,7 +64,7 @@ export default function ProductDetail({onAddToCart}) {
     </div>
       <div className="flex flex-row justify-between gap-4 p-4 bg-gray-200">
       {id>1 ? (<Link to={"/product/"+ (id - 1)} className="text-xl">Previous</Link>):""}
-      <Link to={"/product/" +( id + 1)} className="text-xl">Next</Link>
+      <Link to={"/product/" + ( id + 1)} className="text-xl">Next</Link>
       </div>
     </div>
   );
