@@ -8,7 +8,7 @@ export default function Navbar({setQuery,query,TotalCount}) {
           {/* Logo */}
           <div className="text-xl font-bold text-gray-800">ShopEase</div>
   
-          {/* Search Bar */}``
+          {/* Search Bar */}
           <div className="hidden md:flex flex-grow mx-4">
             <input
             value={query}
