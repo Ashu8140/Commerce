@@ -1,7 +1,8 @@
 import { Form, Formik, useFormik } from 'formik';
 import React, { useEffect, useState } from 'react';
 import * as Yup from 'yup';
-import InputSignPage from './InputSignPage';
+import FancyInput from './fancyInput';
+import NormalInput from './NormalInput';
 
 const SignupPage = () => {
 
@@ -30,21 +31,21 @@ const SignupPage = () => {
         validationSchema={schema}
         >
         <Form  className="space-y-4">
-          <InputSignPage
+          <NormalInput
             label="Name"
             id="name"
             type="text" 
             name="name"   
           />
          
-          <InputSignPage
+          <FancyInput
             label="Email"
             id="email"
             type="email"
             name="email"
             />
           
-          <InputSignPage
+          <NormalInput
             label="Password"
             id="password"
             type="password"

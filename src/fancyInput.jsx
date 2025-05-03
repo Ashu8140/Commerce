@@ -1,11 +1,9 @@
 import { useField } from "formik";
 import React from "react";
+import FormikHoc from "./FormikHoc";
 
-function InputSignPage({ id, type, name, label}) {
-  const field=useField(name);
-  const [data,meta]=field;
- const {onBlur,onChange,value,}=data;
- const {touched,error}=meta;
+function FancyInput({ id, type, name, label,value,onBlur,onChange, touched,error}){
+ 
 
   return (
     <div>
@@ -18,11 +16,11 @@ function InputSignPage({ id, type, name, label}) {
         onChange={onChange}
         required
         onBlur={onBlur}
-        className="w-full mt-1 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+        className="w-full mt-1 px-4 py-2 border rounded-md focus:outline-none focus:ring-8 focus:ring-blue-400"
       />
      {touched && error && (<div className='text-red-500'>{error}</div>)}
     </div>
   ); 
 }
 
-export default InputSignPage;
+export default FormikHoc(FancyInput);
