@@ -1,6 +1,4 @@
-import { useField } from "formik";
 import React from "react";
-import FormikHoc from "./FormikHoc";
 
 function FancyInput({ id, type, name, label,value,onBlur,onChange, touched,error}){
  
@@ -23,4 +21,4 @@ function FancyInput({ id, type, name, label,value,onBlur,onChange, touched,error
   ); 
 }
 
-export default FormikHoc(FancyInput);
+export default FancyInput;

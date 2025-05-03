@@ -1,6 +1,5 @@
 import { useField } from "formik";
 import React from "react";
-import FormikHoc from "./FormikHoc";
 
 function NormalInput({ id, type, name, label, value, onBlur, onChange, touched, error}) {
  
@@ -22,4 +21,4 @@ function NormalInput({ id, type, name, label, value, onBlur, onChange, touched, 
   ); 
 }
 
-export default FormikHoc(NormalInput);
+export default NormalInput;
