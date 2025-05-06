@@ -8,7 +8,6 @@ function ProductListPage({query}){
  
   useEffect(()=>{
     getProductList().then((rsponse)=>{
-      console.log(typeof(rsponse.data.products));
          setProducts(rsponse.data.products);
     });
   },[]);
@@ -34,17 +33,4 @@ function ProductListPage({query}){
 }
 export default ProductListPage;
 
-const products = [
-  { id: 1, title: "Laptop", price: 800 },
-  { id: 2, title: "Mouse", price: 25 },
-  { id: 3, title: "Keyboard", price: 45 },
-  { id: 4, title: "Monitor", price: 200 }
-];
 
-const query = ""; // User's search input
-
-const filteredProducts = products.filter(product =>
-  product.title.toLowerCase().includes(query.toLowerCase())!= -1
-);
-
-console.log(filteredProducts);

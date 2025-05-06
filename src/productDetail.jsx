@@ -6,21 +6,20 @@ export default function ProductDetail({onAddToCart}) {
 
   const [data, setData]=useState([]);
   const [count,setCount]=useState(1);
-  const id  = +(useParams().id);
-  console.log(id);
- 
-   useEffect(()=>{
-     getProductDetail(id).then((response)=>{
+  const productId = +(useParams().id);
+
+     useEffect(()=>{
+     getProductDetail(productId).then((response)=>{
      setData(response);
      setCount(1);
       })
-    },[id]);
+    },[productId]);
 
     function handleChange(e){
         setCount(+e.target.value);
     } 
     function handleButtonClick(){
-      onAddToCart(id,count)
+      onAddToCart(productId,count)
     }
 
     
@@ -63,8 +62,8 @@ export default function ProductDetail({onAddToCart}) {
       </div>
     </div>
       <div className="flex flex-row justify-between gap-4 p-4 bg-gray-200">
-      {id>1 ? (<Link to={"/product/"+ (id - 1)} className="text-xl">Previous</Link>):""}
-      <Link to={"/product/" + ( id + 1)} className="text-xl">Next</Link>
+      {productId>1 ? (<Link to={"/product/"+ (productId - 1)} className="text-xl">Previous</Link>):""}
+      <Link to={"/product/" + ( productId + 1)} className="text-xl">Next</Link>
       </div>
     </div>
   );

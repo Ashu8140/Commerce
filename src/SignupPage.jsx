@@ -1,7 +1,6 @@
 import {  withFormik } from 'formik';
 import React, { useEffect, useState } from 'react';
 import * as Yup from 'yup';
-import FancyInput from './fancyInput';
 import NormalInput from './NormalInput';
 
 const CallApi = (values) => {
@@ -9,10 +8,11 @@ const CallApi = (values) => {
 };
 
 const schema = Yup.object().shape({
-  name: Yup.string().required('Name is required'),
+  name: Yup.string().required(),
   email: Yup.string().email('Invalid email').required('Email is required'),
-  password: Yup.string().min(8, 'Password must be at least 8 characters').required('Password is required'),
+  password: Yup.string().min(8, 'Password must be at least 8 characters').required(),
 });
+
 
 const  initialValues={
       name: '',
@@ -34,21 +34,21 @@ const { values, touched, errors,handleChange,handleBlur,handleSubmit}=props;
             type="text" 
             name="name"
             value={values.name} 
-            handleBlur={handleBlur}  
-            handleChange={handleChange}
-            errors={errors.name}
+            onBlur={handleBlur}  
+            onChange={handleChange}
+            error={errors.name }
             touched={touched.name}
           />
          
-          <FancyInput
+          <NormalInput
             label="Email"
             id="email"
             type="email"
             name="email"
             value={values.email} 
-            handleBlur={handleBlur}  
-            handleChange={handleChange}
-            errors={errors.email}
+            onBlur={handleBlur}  
+            onChange={handleChange}
+            error={errors.email}
             touched={touched.email}
             />
           
@@ -58,9 +58,9 @@ const { values, touched, errors,handleChange,handleBlur,handleSubmit}=props;
             type="password"
             name="password"
             value={values.password} 
-            handleBlur={handleBlur}  
-            handleChange={handleChange}
-            errors={errors.password}
+            onBlur={handleBlur}  
+            onChange={handleChange}
+            error={errors.password}
             touched={touched.password}
           
           />

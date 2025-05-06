@@ -15,8 +15,10 @@ function NormalInput({ id, type, name, label, value, onBlur, onChange, touched, 
         required
         onBlur={onBlur}
         className="w-full mt-1 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-      />
-     {touched && error && (<div className='text-red-500'>{error}</div>)}
+      /> 
+      {error && touched && (
+        <div className="text-red-500 text-sm mt-1">{error}</div>
+      )}
     </div>
   ); 
 }

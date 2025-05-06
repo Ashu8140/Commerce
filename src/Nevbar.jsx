@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar({setQuery,query,TotalCount}) {
   
@@ -26,14 +27,14 @@ export default function Navbar({setQuery,query,TotalCount}) {
             <a href="#" className="text-gray-700 hover:text-blue-600">About</a>
   
             {/* Cart Icon */}
-            <div className="relative">
-            {/* <Link to="/cart"> 
+            {/* <div className="relative">
+            <Link to="/cart"> 
               <button className="text-gray-700 hover:text-blue-600">
                 🛒
                 <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1 rounded-full">{TotalCount}</span>
               </button>
-              </Link> */}
-            </div>
+              </Link>
+            </div> */}
   
             {/* Profile Dropdown */}
             <div className="relative">
