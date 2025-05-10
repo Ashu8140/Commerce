@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getProductDetail } from "./Api";
 
-export default function ProductDetail({onAddToCart}) {
+export default function ProductDetail({AddToCart}) {
 
   const [data, setData]=useState([]);
   const [count,setCount]=useState(1);
@@ -19,7 +19,7 @@ export default function ProductDetail({onAddToCart}) {
         setCount(+e.target.value);
     } 
     function handleButtonClick(){
-      onAddToCart(productId,count)
+      AddToCart(productId,count)
     }
 
     

@@ -12,4 +12,9 @@ export function getProductDetail(id) {
     });
       
   }
-  getProductDetail(5);
+export function getProductRow(id) {
+    return  axios.get("https://dummyjson.com/products/" + id).then(function(response){
+      return response.data
+    });
+      
+  }
