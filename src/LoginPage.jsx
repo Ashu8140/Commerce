@@ -1,10 +1,27 @@
 import {  withFormik } from 'formik';
 import * as Yup from 'yup';
 import NormalInput from './NormalInput';
+import axios from 'axios';
+import { Link, Navigate } from 'react-router-dom';
+import { use } from 'react';
 
-const CallApi = (values) => {
-  console.log( values.email, values.password);
+const CallApi = (values,bag) => {
+  console.log(bag.props.data);
+  axios.post("https://myeasykart.codeyogi.io/login",{
+   email:values.email, password:values.password
+ }).then((response)=>{
+  const {user,token}=response.data;
+  localStorage.setItem("token",token);
+  bag.props.setUser(user);
+}).catch(()=>{
+  console.log("invalid creantial");
+});
 };
+
+
+
+
+
 
 const schema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Email is required'),
@@ -19,6 +36,7 @@ const  initialValues={
 
  export const LoginPage = (props) => {
 const { values, touched, errors,handleChange,handleBlur,handleSubmit}=props;
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
@@ -60,7 +78,9 @@ const { values, touched, errors,handleChange,handleBlur,handleSubmit}=props;
            Login
           </button>
         </form>
-        
+<div className='mt-4 flex justify-center'>
+        <Link to="/signup">Don't have an Account? <span className='text-blue-500'>Signup</span> </Link>
+ </div>       
       </div>
     </div>
   );

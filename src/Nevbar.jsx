@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Navbar({setQuery,query,TotalCount}) {
+export default function Navbar({setQuery,query,TotalCount,setUser}) {
+  function HandleLogout(){
+   const d= localStorage.removeItem("token");
+    setUser(d);
+  }
   
     return (
       <nav className="bg-white shadow-md p-4">
@@ -37,14 +41,26 @@ export default function Navbar({setQuery,query,TotalCount}) {
             </div>
   
             {/* Profile Dropdown */}
-            <div className="relative">
-              <button className="text-gray-700 hover:text-blue-600">👤</button>
-              <div className="absolute right-0 mt-2 w-40 bg-white shadow-md rounded-md hidden group-hover:block">
-                <a href="#" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Profile</a>
-                <a href="#" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Orders</a>
-                <a href="#" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Logout</a>
-              </div>
-            </div>
+            <div className="relative group">
+  <button className="text-gray-700 hover:text-blue-600">👤</button>
+  
+   <div className="relative group inline-block">
+  
+
+  <div
+    className="absolute right-0 mt-2 w-40 bg-white shadow-md rounded-md opacity-0 invisible 
+               group-hover:visible group-hover:opacity-100 
+               group-focus-within:visible group-focus-within:opacity-100 
+               transition-all duration-150 z-10"
+  >
+    <a href="#" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Profile</a>
+    <a href="#" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Orders</a>
+    <a onClick={HandleLogout} className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Logout</a>
+  </div>
+</div>
+
+</div>
+
           </div>
         </div>
       </nav>

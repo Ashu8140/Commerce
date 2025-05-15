@@ -40,7 +40,7 @@ const Product = ({data,setSort,sort}) => {
           </div>
         ))}
       </div>
-    </div>): <Loading/>
+    </div>): <Loading />
 }
     </>
     

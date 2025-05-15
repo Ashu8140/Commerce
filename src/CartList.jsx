@@ -5,12 +5,11 @@ import { getProductRow } from "../../Desktop/TodoApp/Todo/src/Api";
 import { getProductList } from "./Api";
 import { LuVariable } from "react-icons/lu";
 
-const CartList=({cart,setCart,updateCart})=>{
+const CartList=({cart ,updateCart})=>{
     const [product,setProduct]=useState([]);
     const [localCart,setLocalCart]=useState(cart);
     const [loading,setLoading]=useState(false);
-   
-    const key=Object.keys(cart);
+    const key=Object.keys(cart || {});
     const cartIdArray= key.map(Number);
 
 useEffect(()=>{

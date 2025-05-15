@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "axios": "^1.8.4",
+    "axios": "^1.9.0",
     "axois": "^0.0.1-security",
     "formik": "^2.4.6",
     "path-browserify": "^1.0.1",
