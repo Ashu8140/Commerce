@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import {  withCart, withUser } from "./withProvider";
 
-export default function Navbar({setQuery,query,TotalCount,setUser}) {
-  function HandleLogout(){
-   const d= localStorage.removeItem("token");
-    setUser(d);
-  }
-  
+ function Navbar({setQuery,query,totalcount,HandleLogout}) {
     return (
       <nav className="bg-white shadow-md p-4">
         <div className="container mx-auto flex items-center justify-between">
@@ -26,7 +22,7 @@ export default function Navbar({setQuery,query,TotalCount,setUser}) {
   
           {/* Navigation & Icons */}
           <div className="flex items-center space-x-6">
-            <a href="#" className="text-gray-700 hover:text-blue-600">Home</a>
+            <Link to="/" className="text-gray-700 hover:text-blue-600">Home</Link>
             <a href="#" className="text-gray-700 hover:text-blue-600">Shop</a>
             <a href="#" className="text-gray-700 hover:text-blue-600">About</a>
   
@@ -35,7 +31,7 @@ export default function Navbar({setQuery,query,TotalCount,setUser}) {
             <Link to="/cart"> 
               <button className="text-gray-700 hover:text-blue-600">
                 🛒
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1 rounded-full">{TotalCount}</span>
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1 rounded-full">{totalcount}</span>
               </button>
               </Link>
             </div>
@@ -66,4 +62,4 @@ export default function Navbar({setQuery,query,TotalCount,setUser}) {
       </nav>
     );
   }
-  
+  export default withUser(withCart(Navbar));

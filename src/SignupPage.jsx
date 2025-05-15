@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react';
 import * as Yup from 'yup';
 import NormalInput from './NormalInput';
 import axios from 'axios';
-import { Link, Navigate } from 'react-router-dom';
+import { Form, Link, Navigate } from 'react-router-dom';
+import { withUser } from './withProvider';
 
 const CallApi = (values,bag) => {
   console.log(values.name, values.email, values.password);
@@ -96,13 +97,14 @@ const { values, touched, errors,handleChange,handleBlur,handleSubmit}=props;
   );
 };
 
-const MyHOC = withFormik({
+
+const EasySignup = withFormik({
   validationSchema:schema,
   initialValues:initialValues,
   handleSubmit:CallApi,
 
-});
-const EasySignup= MyHOC(SignupPage);
+})(SignupPage);
 
-export default EasySignup;
+
+export default withUser(EasySignup);
 

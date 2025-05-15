@@ -4,6 +4,7 @@ import { use, useEffect, useState } from "react";
 import { getProductRow } from "../../Desktop/TodoApp/Todo/src/Api";
 import { getProductList } from "./Api";
 import { LuVariable } from "react-icons/lu";
+import { withCart } from "./withProvider";
 
 const CartList=({cart ,updateCart})=>{
     const [product,setProduct]=useState([]);
@@ -65,4 +66,4 @@ function handleUpdateCart(){
     );
 
 }
-export default CartList;
+export default withCart( CartList);

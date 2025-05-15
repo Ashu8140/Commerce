@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getProductList } from "./Api";
 import Product from "./Products";
 import { Navigate } from "react-router-dom";
+import { withCart } from "./withProvider";
 
 function ProductListPage({query}){
  const[products, setProducts]=useState([]);
@@ -34,6 +35,6 @@ function ProductListPage({query}){
         </div>
     );
 }
-export default ProductListPage;
+export default withCart( ProductListPage);
 
 

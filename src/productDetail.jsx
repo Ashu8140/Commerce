@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getProductDetail } from "./Api";
+import { withCart } from "./withProvider";
 
-export default function ProductDetail({AddToCart}) {
+ function ProductDetail({AddToCart}) {
 
   const [data, setData]=useState([]);
   const [count,setCount]=useState(1);
@@ -68,3 +69,4 @@ export default function ProductDetail({AddToCart}) {
     </div>
   );
 } 
+export default withCart(ProductDetail);

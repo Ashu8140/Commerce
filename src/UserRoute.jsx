@@ -1,4 +1,5 @@
 import { Navigate, Route } from "react-router-dom";
+import { withUser } from "./withProvider";
 
 function UserRoute({user,children}){
     if(user){
@@ -8,4 +9,4 @@ function UserRoute({user,children}){
 
     
 }
-export default UserRoute;
+export default withUser(UserRoute);

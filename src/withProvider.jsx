@@ -4,8 +4,8 @@ import { AlertContext, CartContext, UserContext } from "./Context";
 function withProvider(provider){
     function myHOC(IncomingComponent){
         function OutGoingComponent(props){
-            const UserContext=useContext(provider);
-            return <IncomingComponent  {...props} {...UserContext}/>
+            const ContextValue=useContext(provider);
+            return <IncomingComponent  {...props} {...ContextValue}/>
         }
         return OutGoingComponent;
 }

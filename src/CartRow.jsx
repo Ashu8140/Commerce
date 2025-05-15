@@ -1,4 +1,5 @@
 import { TiDeleteOutline } from "react-icons/ti";
+import { withCart } from "./withProvider";
 
 const CartRow=({id,title,thumbnail,handleClickDelete,onQuantityChange ,localCart})=>{
    
@@ -31,4 +32,4 @@ const CartRow=({id,title,thumbnail,handleClickDelete,onQuantityChange ,localCart
     );
 }
 
-export default CartRow;
+export default withCart(CartRow);
