@@ -1,10 +1,8 @@
 import { number } from "yup";
 import CartRow from "./CartRow";
-import { use, useEffect, useState } from "react";
-import { getProductRow } from "../../Desktop/TodoApp/Todo/src/Api";
-import { getProductList } from "./Api";
-import { LuVariable } from "react-icons/lu";
+import { useEffect, useState } from "react";
 import { withCart } from "./withProvider";
+import { getProductRow } from "./Api";
 
 const CartList=({cart ,updateCart})=>{
     const [product,setProduct]=useState([]);

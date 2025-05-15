@@ -5,6 +5,3 @@ export const CartContext=createContext();
 export const AlertContext=createContext();
 
 
-
-//ewjelkjew
-//fklejhfqew
