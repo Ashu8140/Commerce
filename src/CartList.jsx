@@ -48,6 +48,7 @@ function handleUpdateCart(){
             key={item.id}
             id={item.id}
             title={item.title}
+            prise={item.price}
             thumbnail={item.thumbnail}
             onQuantityChange={onQuantityChange}
             localCart={localCart}

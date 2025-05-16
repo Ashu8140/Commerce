@@ -18,7 +18,7 @@ import CartProvider from "./userProvider.jsx/CartProvider";
      const hideNavbar = noNavbarPaths.includes(path);
 
     return (
-      <div>
+      <div className="p-6">
       <UserProvider>
       <CartProvider>
        { !hideNavbar && <Navbar />}

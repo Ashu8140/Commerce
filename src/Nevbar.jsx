@@ -7,10 +7,10 @@ import {  withCart, withUser } from "./withProvider";
       <nav className="bg-white shadow-md p-4">
         <div className="container mx-auto flex items-center justify-between">
           {/* Logo */}
-          <div className="text-xl font-bold text-gray-800">ShopEase</div>
+          <div className="text-xl hidden md:flex font-bold text-gray-800">ShopEase</div>
   
           {/* Search Bar */}
-          <div className="hidden md:flex flex-grow mx-4">
+          <div className="  flex-grow mx-2">
             <input
             value={query}
              onChange={((e)=>setQuery(e.target.value))}

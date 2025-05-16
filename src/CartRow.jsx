@@ -1,34 +1,47 @@
 import { TiDeleteOutline } from "react-icons/ti";
 import { withCart } from "./withProvider";
 
-const CartRow=({id,title,thumbnail,handleClickDelete,onQuantityChange ,localCart})=>{
-   
+const CartRow=({id,title,thumbnail,handleClickDelete,onQuantityChange ,localCart,prise})=>{
   function handleChange(event){
         onQuantityChange(id, + event.target.value);
        }
 
     return(
-          <div >
-             <div className="flex items-center justify-between mb-2 border border-black p-2">
-             <img src={thumbnail} alt={title} className="w-12 h-12 object-cover rounded" />
-             <input
-             className="border border-black "
-             key={id}
-             type="number" 
-             value={localCart[id]}
-              onChange={handleChange}
-            />
-            
-              <span>{title}</span>
-              <div className="flex items-center gap-2">
-                <span className="text-gray-600 mr-48"></span>
-                <button className="ml-10 text-4xl "onClick={()=>handleClickDelete(id)} ><TiDeleteOutline /></button>
-              </div>
-            </div>
-             
-           
-        
+         <div>
+  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2 border border-black p-2">
+    
+    {/* Thumbnail */}
+    <img src={thumbnail} alt={title} className="w-16 h-16 object-cover rounded" />
+    
+    {/* Input */}
+    <input
+      className="border border-black w-16 text-center"
+      key={id}
+      type="number"
+      value={localCart[id] ?? ''}
+      onChange={(e) => handleChange(e, id)}
+    />
+
+    {/* Title */}
+    <span className="flex-1 sm:text-left text-sm sm:text-base">{title}</span>
+
+    {/* Price */}
+    <div className="border border-black px-2 py-1 min-w-[60px] text-center mr-8">
+      {localCart[id] * prise}
     </div>
+
+    {/* Delete Button */}
+    <div className="flex items-center justify-end">
+      <button
+        className="text-2xl text-red-600 hover:text-red-800"
+        onClick={() => handleClickDelete(id)}
+      >
+        <TiDeleteOutline />
+      </button>
+    </div>
+  </div>
+</div>
+
     );
 }
 
