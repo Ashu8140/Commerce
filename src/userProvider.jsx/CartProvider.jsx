@@ -2,7 +2,7 @@ import { useState } from "react";
 import { CartContext } from "../Context";
 
 function CartProvider({children}){
-    const parsedData = JSON.parse(localStorage.getItem("cart")) || [n];
+    const parsedData = JSON.parse(localStorage.getItem("cart")) || [];
     const [cart,setCart]=useState(parsedData);
     const [query,setQuery]=useState("");
     
