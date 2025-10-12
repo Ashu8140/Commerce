@@ -6,33 +6,28 @@ import ProductDetail from "./productDetail";
 import CartList from "./CartList";
 import UserRoute from "./UserRoute";
 import AuthRoute from "./AuthRoute";
-import EasySignup  from "./SignupPage";
+import EasySignup from "./SignupPage";
 import EasyLogin from "./LoginPage";
 import UserProvider from "./userProvider.jsx/UserProvider";
 import CartProvider from "./userProvider.jsx/CartProvider";
- function App() {
-  
+function App() {
   const location = useLocation();
-   const noNavbarPaths = ["/login", "/signup"];
-    const path = location.pathname.replace(/\/+$/, "");
-     const hideNavbar = noNavbarPaths.includes(path);
+  const noNavbarPaths = ["/login", "/signup"];
+  const path = location.pathname.replace(/\/+$/, "");
+  const hideNavbar = noNavbarPaths.includes(path);
 
-    return (
-      <div className="p-6">
-      <UserProvider>
+  return (
+    <div className="p-6">
       <CartProvider>
-       { !hideNavbar && <Navbar />}
-      <Routes>
-        <Route path="/" element={<AuthRoute > <ProductListPage  /></AuthRoute>} ></Route>
-        <Route path="/signup" element={<UserRoute><EasySignup /></UserRoute>}></Route>   
-        <Route path="/login" element={<UserRoute ><EasyLogin /></UserRoute>} ></Route>
-        <Route path="/cart" element={ <AuthRoute ><CartList /> </AuthRoute>}></Route>
-        <Route path="/product/:id" element={ <AuthRoute><ProductDetail /></AuthRoute>}></Route>
-      </Routes>
+        {!hideNavbar && <Navbar />}
+        <Routes>
+          <Route path="/" element={<ProductListPage />}></Route>
+          <Route path="/cart" element={<CartList />}></Route>
+          <Route path="/product/:id" element={<ProductDetail />}></Route>
+        </Routes>
       </CartProvider>
-      </UserProvider>
-      </div>
-    )
-  }
+    </div>
+  );
+}
 
-  export default App;
+export default App;
